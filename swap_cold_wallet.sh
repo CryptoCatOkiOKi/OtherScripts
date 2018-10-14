@@ -47,6 +47,7 @@ else
   sudo add-apt-repository  -y  ppa:bitcoin/bitcoin
   sudo apt-get update
   sudo apt-get install -y libdb4.8-dev libdb4.8++-dev
+  sudo apt-get install libzmq5-dev
 
   cd /var
   sudo touch swap.img
