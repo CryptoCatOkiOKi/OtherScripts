@@ -16,7 +16,7 @@ mkdir -p MASTERCOINONE_TMP
 cd MASTERCOINONE_TMP
 #wget https://github.com/MasterCoinOne/MasterCoinNew/releases/download/v1.0/MasterCoin-1.0.0-x86_64-pc-linux-gnu.zip
 #wget https://github.com/MasterCoinOne/MasterCoinV2/releases/download/v1.0.1.0/mastercoin-1.0.1-linux.tar.gz -O mastercoin-1.0.1-linux.tar.gz
-wget https://github.com/MasterCoinOne/MasterCoinV2/releases/download/v1.0.2.0/mastercoin-1.0.2-linux-qt.tar.gz -O mastercoin-1.0.2-linux.tar.gz
+wget https://github.com/MasterCoinOne/MasterCoinV2/releases/download/v1.0.2.0/mastercoin-1.0.2-linux.tar.gz -O mastercoin-1.0.2-linux.tar.gz
 sudo chmod 775 mastercoin-1.0.2-linux.tar.gz
 #unzip MasterCoin-1.0.0-x86_64-pc-linux-gnu.zip
 tar -xvzf mastercoin-1.0.2-linux.tar.gz
