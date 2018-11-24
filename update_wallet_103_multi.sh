@@ -33,17 +33,19 @@ sudo mv mastercoin* /usr/bin
 cd ~
 rm -rdf MASTERCOIN_TMP
 
-cd ~/.mastercoin
-rm -R ./database
-rm -R ./blocks	
-rm -R ./sporks
-rm -R ./chainstate
-rm -R ./budget.dat	
-rm -R ./fee_estimates.dat
-rm -R ./mastercoind.pid
-rm -R ./mncache.dat
-rm -R ./mnpayments.dat
-rm -R ./peers.dat
+for d in ~/.mastercoin*; do
+	cd $d
+	rm -R ./database
+	rm -R ./blocks	
+	rm -R ./sporks
+	rm -R ./chainstate
+	rm -R ./budget.dat	
+	rm -R ./fee_estimates.dat
+	rm -R ./mastercoind.pid
+	rm -R ./mncache.dat
+	rm -R ./mnpayments.dat
+	rm -R ./peers.dat
+done
 
 cd ~
 
