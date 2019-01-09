@@ -3,7 +3,7 @@ echo
 echo "MASTERCOIN - Masternode updater"
 echo ""
 echo "Welcome to the MASTERCOIN Masternode update script."
-echo "Wallet v1.0.3.0"
+echo "Wallet v1.0.4.0"
 echo
 
 mastercoin-cli stop
@@ -18,7 +18,7 @@ cd
 cd ~
 mkdir -p MASTERCOIN_TMP
 cd MASTERCOIN_TMP
-wget https://github.com/MasterCoinOne/MasterCoinV2/releases/download/v1.0.3.0/mastercoin-1.0.3-linux.tar.gz -O mastercoin-linux.tar.gz
+wget https://github.com/MasterCoinOne/MasterCoinV2/releases/download/v1.0.4.0/mastercoin-1.0.4-linux.tar.gz -O mastercoin-linux.tar.gz
 sudo chmod 775 mastercoin-linux.tar.gz
 tar -xvzf mastercoin-linux.tar.gz
 
