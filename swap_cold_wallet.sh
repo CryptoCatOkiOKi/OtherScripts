@@ -15,7 +15,7 @@ cd
 mkdir -p MASTERCOINONE_TMP
 cd MASTERCOINONE_TMP
 
-wget https://github.com/MasterCoinOne/MasterCoinV2/releases/download/v1.0.3.0/mastercoin-1.0.3-linux.tar.gz -O mastercoin-linux.tar.gz
+wget https://github.com/MasterCoinOne/MasterCoinV2/releases/download/v1.0.5.0/mastercoin-1.0.5-linux.tar.gz -O mastercoin-linux.tar.gz
 sudo chmod 775 mastercoin-linux.tar.gz
 
 tar -xvzf mastercoin-linux.tar.gz
