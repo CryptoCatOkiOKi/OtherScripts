@@ -130,7 +130,7 @@ for (( ; ; ))
 do 
 
    # read -n 1 -s -r -p "****Press any key to install ${STARTNUMBER}*****"
-	if [[ "$STARTNUMBER" -gt "$MNCOUNT" ]]; then
+	if [[ "$COUNTER" -gt "$MNCOUNT" ]]; then
 	  break
 	fi	
 
