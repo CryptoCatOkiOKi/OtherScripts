@@ -64,14 +64,14 @@ done
 while ! [[ $PORT =~ $re ]] ; do
    echo ""
    PORT=""
-   echo -e "${YELLOW}Enter starting port:${NC}"
+   echo -e "${YELLOW}Enter starting port:(e.g. 16100)${NC}"
    read PORT
 done
 
 while ! [[ $RPCPORT =~ $re ]] ; do
    echo ""
    RPCPORT=""
-   echo -e "${YELLOW}Enter starting RPC port:${NC}"
+   echo -e "${YELLOW}Enter starting RPC port:(e.g. 17100)${NC}"
    read RPCPORT
 done
 
