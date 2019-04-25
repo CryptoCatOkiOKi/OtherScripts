@@ -77,7 +77,7 @@ done
 
 echo ""
 ALIASONE=""
-echo "${YELLOW}Enter blockchain wallet alias for copying chain to new wallets: (e.g. mn0 or mn1)${NC}"
+echo -e "${YELLOW}Enter blockchain wallet alias for copying chain to new wallets: (e.g. mn0 or mn1)${NC}"
 read ALIASONE
 
 # check ALIASONE
@@ -111,14 +111,22 @@ rm -R backups
 sh ~/bin/${NAME}d_$ALIASONE.sh
 sleep 1
 
-for I in {$STARTNUMBER..$MNCOUNT}
+BREAKNUMBER=$[STARTNUMBER + 9]
+echo "BREAKNUMBER=$BREAKNUMBER"
+
+for (( ; ; ))
 do 
+
+	if [[ "$STARTNUMBER" -gt "$MNCOUNT" ]]; then
+	  break
+	fi	
+
    for (( ; ; ))
    do  
       echo "************************************************************"
       echo ""
       EXIT='NO'
-      ALIAS="MN$I"
+      ALIAS="MN$STARTNUMBER"
       ALIAS=${ALIAS,,}  
       echo $ALIAS
 
@@ -296,8 +304,14 @@ do
    echo $MNCONFIG >> ~/bin/masternode_config.txt
     
    COUNTER=$[COUNTER + 1]
+   STARTNUMBER=$[STARTNUMBER + 1]
    PORT=$[PORT + 1]
-   RPCPORT=$[RPCPORT + 1]  
+   RPCPORT=$[RPCPORT + 1]     
+
+	if [[ "$COUNTER" -gt "$BREAKNUMBER" ]]; then
+	  break
+	fi	
+
    sleep 1 # wait second
 done
 
