@@ -302,7 +302,7 @@ do
       if [ -z "$PID" ]; then
          cd $CONF_DIR
          echo "Copy BLOCKCHAIN"
-         cp -R $CONF_DIR_ONE_TMP/ $CONF_DIR
+         cp -R $CONF_DIR_ONE_TMP/* $CONF_DIR/
 
          echo "Start wallet back"
          sh ~/bin/${NAME}d_$ALIAS.sh		
