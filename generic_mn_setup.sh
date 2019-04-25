@@ -82,7 +82,9 @@ read ALIASONE
 
 # check ALIASONE
 CONF_DIR_ONE=~/.${NAME}_$ALIASONE
+echo "CONF_DIR_ONE=$CONF_DIR_ONE"
 CONF_DIR_ONE_TMP=~/${NAME}_$ALIASONE_tmp
+echo "CONF_DIR_ONE_TMP=$CONF_DIR_ONE_TMP"
 
 if [ -d "$CONF_DIR_ONE" ]; then
    echo -e "${RED}$ALIASONE is already used. $CONF_DIR_ONE already exists!${NC}"
@@ -117,6 +119,7 @@ echo "BREAKNUMBER=$BREAKNUMBER"
 for (( ; ; ))
 do 
 
+   read -n 1 -s -r -p "****Press any key to install ${STARTNUMBER}*****"
 	if [[ "$STARTNUMBER" -gt "$MNCOUNT" ]]; then
 	  break
 	fi	
