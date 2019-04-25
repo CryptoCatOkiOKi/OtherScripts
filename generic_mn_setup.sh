@@ -75,6 +75,12 @@ while ! [[ $RPCPORT =~ $re ]] ; do
    read RPCPORT
 done
 
+if [ $PORT == "$RPCPORT" ]
+then
+   echo -e "${RED}PORT must be different then RPCPORT!${NC}"
+   exit 1
+fi
+
 echo ""
 ALIASONE=""
 echo -e "${YELLOW}Enter blockchain wallet alias for copying chain to new wallets: (e.g. mn0 or mn1)${NC}"
@@ -211,22 +217,6 @@ do
 
    #Extract addnode lines 
    grep "addnode" $CONF_DIR_ONE/${NAME}.conf >> ${NAME}.conf_TEMP
-
-#   echo "addnode=51.15.198.252" >> ${NAME}.conf_TEMP 
-#   echo "addnode=51.15.206.123" >> ${NAME}.conf_TEMP 
-#   echo "addnode=51.15.66.234" >> ${NAME}.conf_TEMP 
-#   echo "addnode=51.15.86.224" >> ${NAME}.conf_TEMP 
-#   echo "addnode=51.15.89.27" >> ${NAME}.conf_TEMP 
-#   echo "addnode=51.15.57.193" >> ${NAME}.conf_TEMP 
-#   echo "addnode=134.255.232.212" >> ${NAME}.conf_TEMP 
-#   echo "addnode=185.239.238.237" >> ${NAME}.conf_TEMP 
-#   echo "addnode=185.239.238.240" >> ${NAME}.conf_TEMP 
-#   echo "addnode=134.255.232.212" >> ${NAME}.conf_TEMP 
-#   echo "addnode=207.148.26.77" >> ${NAME}.conf_TEMP 
-#   echo "addnode=207.148.19.239" >> ${NAME}.conf_TEMP 
-#   echo "addnode=108.61.103.123" >> ${NAME}.conf_TEMP 
-#   echo "addnode=185.239.238.89" >> ${NAME}.conf_TEMP 
-#   echo "addnode=185.239.238.92" >> ${NAME}.conf_TEMP   
 
    echo "" >> ${NAME}.conf_TEMP
    echo "port=$PORT" >> ${NAME}.conf_TEMP
