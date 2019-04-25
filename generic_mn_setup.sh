@@ -83,12 +83,12 @@ read ALIASONE
 # check ALIASONE
 CONF_DIR_ONE=~/.${NAME}_$ALIASONE
 echo "CONF_DIR_ONE=$CONF_DIR_ONE"
-CONF_DIR_ONE_TMP=~/${NAME}_$ALIASONE_tmp
+CONF_DIR_ONE_TMP=~/${NAME}_${ALIASONE}_tmp
 echo "CONF_DIR_ONE_TMP=$CONF_DIR_ONE_TMP"
 
 if [ -d "$CONF_DIR_ONE" ]; then
    echo -e "${RED}$ALIASONE is already used. $CONF_DIR_ONE already exists!${NC}"
-   return -1
+   exit 1
 fi	
 
 PID=`ps -ef | grep -i $ALIASONE | grep -i ${NAME}d | grep -v grep | awk '{print $2}'`
@@ -155,7 +155,7 @@ do
 
    if [ $EXIT == 'YES' ]
    then
-      return -1
+      exit 1
    fi
 
    PORT1=""
