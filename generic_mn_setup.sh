@@ -103,6 +103,7 @@ else
 fi
 
 # create temp folder for blockchain
+rm -R $CONF_DIR_ONE_TMP
 mkdir -p $CONF_DIR_ONE_TMP
 cp -R $CONF_DIR_ONE/* $CONF_DIR_ONE_TMP/
 rm -R $CONF_DIR_ONE_TMP/${NAME}.conf
