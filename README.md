@@ -8,7 +8,9 @@ Instruction based on bitcoingreen
     * port **16100**
     * rpcport **17100**
 2. Start Generic script 
-    ```wget https://raw.githubusercontent.com/CryptoCatOkiOKi/OtherScripts/master/generic_mn_setup.sh -O generic_mn_setup.sh && chmod 755 generic_mn_setup.sh && ./generic_mn_setup.sh```
+    ```
+    wget https://raw.githubusercontent.com/CryptoCatOkiOKi/OtherScripts/master/generic_mn_setup.sh -O generic_mn_setup.sh && chmod 755 generic_mn_setup.sh && ./generic_mn_setup.sh
+    ```
 3. Enter coin name: 
    * type bitcoingreen (coin name must be name of blockchain folder without alias)
 4. How many nodes do you want to create on this server?
