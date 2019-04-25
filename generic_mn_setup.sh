@@ -123,13 +123,13 @@ rm -R $CONF_DIR_ONE_TMP/banlist.dat
 sh ~/bin/${NAME}d_$ALIASONE.sh
 sleep 1
 
-BREAKNUMBER=$[STARTNUMBER + 9]
+BREAKNUMBER=$[MNCOUNT + 9]
 echo "BREAKNUMBER=$BREAKNUMBER"
 
 for (( ; ; ))
 do 
 
-   read -n 1 -s -r -p "****Press any key to install ${STARTNUMBER}*****"
+   # read -n 1 -s -r -p "****Press any key to install ${STARTNUMBER}*****"
 	if [[ "$STARTNUMBER" -gt "$MNCOUNT" ]]; then
 	  break
 	fi	
