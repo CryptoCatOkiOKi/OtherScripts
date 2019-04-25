@@ -1,1 +1,2 @@
 # OtherScripts
+Generic MasterNode Script
