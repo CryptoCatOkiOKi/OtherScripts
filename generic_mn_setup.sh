@@ -83,13 +83,8 @@ read ALIASONE
 # check ALIASONE
 CONF_DIR_ONE=~/.${NAME}_$ALIASONE
 echo "CONF_DIR_ONE=$CONF_DIR_ONE"
-CONF_DIR_ONE_TMP="~/${NAME}_${ALIASONE}_tmp"
+CONF_DIR_ONE_TMP=~/"${NAME}_${ALIASONE}_tmp"
 echo "CONF_DIR_ONE_TMP=$CONF_DIR_ONE_TMP"
-
-if [ -d "$CONF_DIR_ONE" ]; then
-   echo -e "${RED}$ALIASONE is already used. $CONF_DIR_ONE already exists!${NC}"
-   exit 1
-fi	
 
 PID=`ps -ef | grep -i $ALIASONE | grep -i ${NAME}d | grep -v grep | awk '{print $2}'`
 
@@ -103,11 +98,19 @@ fi
 
 # create temp folder for blockchain
 mkdir -p $CONF_DIR_ONE_TMP
-cp -R $CONF_DIR_ONE/ $CONF_DIR_ONE_TMP
-rm -R ${NAME}.conf
-rm -R debug.log
-rm -R wallet.dat
-rm -R backups
+cp -R $CONF_DIR_ONE/* $CONF_DIR_ONE_TMP/
+rm -R $CONF_DIR_ONE_TMP/${NAME}.conf
+rm -R $CONF_DIR_ONE_TMP/debug.log
+rm -R $CONF_DIR_ONE_TMP/wallet.dat
+rm -R $CONF_DIR_ONE_TMP/backups
+rm -R $CONF_DIR_ONE_TMP/mnpayments.dat
+rm -R $CONF_DIR_ONE_TMP/mncache.dat
+rm -R $CONF_DIR_ONE_TMP/masternode.conf
+rm -R $CONF_DIR_ONE_TMP/fee_estimates.dat
+rm -R $CONF_DIR_ONE_TMP/db.log
+rm -R $CONF_DIR_ONE_TMP/communityvote.dat
+rm -R $CONF_DIR_ONE_TMP/budget.dat
+rm -R $CONF_DIR_ONE_TMP/banlist.dat
 
 # start wallet
 sh ~/bin/${NAME}d_$ALIASONE.sh
@@ -167,10 +170,21 @@ do
          break
       else
          PORT=$[PORT + 1]
-         RPCPORT=$[RPCPORT + 1]
       fi
    done  
    echo "PORT "$PORT 
+
+   RPCPORT1=""
+   for (( ; ; ))
+   do
+      RPCPORT1=$(netstat -peanut | grep -i $RPCPORT)
+
+      if [ -z "$RPCPORT1" ]; then
+         break
+      else
+         RPCPORT=$[RPCPORT + 1]
+      fi
+   done  
    echo "RPCPORT "$RPCPORT
 
    PRIVKEY=""
@@ -194,6 +208,9 @@ do
    echo "daemon=1" >> ${NAME}.conf_TEMP
    echo "logtimestamps=1" >> ${NAME}.conf_TEMP
    echo "maxconnections=256" >> ${NAME}.conf_TEMP
+
+   #Extract addnode lines 
+   grep "addnode" $CONF_DIR_ONE/${NAME}.conf >> ${NAME}.conf_TEMP
 
 #   echo "addnode=51.15.198.252" >> ${NAME}.conf_TEMP 
 #   echo "addnode=51.15.206.123" >> ${NAME}.conf_TEMP 
