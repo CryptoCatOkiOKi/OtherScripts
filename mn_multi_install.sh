@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
          
 RPC_PORT=17100
 VERSION=V1.0.6
