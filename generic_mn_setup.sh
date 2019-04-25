@@ -64,20 +64,20 @@ done
 while ! [[ $PORT =~ $re ]] ; do
    echo ""
    PORT=""
-   echo "${YELLOW}Enter starting port:${NC}"
+   echo -e "${YELLOW}Enter starting port:${NC}"
    read PORT
 done
 
 while ! [[ $RPCPORT =~ $re ]] ; do
    echo ""
    RPCPORT=""
-   echo "${YELLOW}Enter starting RPC port:${NC}"
+   echo -e "${YELLOW}Enter starting RPC port:${NC}"
    read RPCPORT
 done
 
 echo ""
 ALIASONE=""
-echo "${YELLOW}Enter blockchain wallet alias for copying chain to new wallets (e.g. mn0 or mn1).${NC}"
+echo "${YELLOW}Enter blockchain wallet alias for copying chain to new wallets: (e.g. mn0 or mn1)${NC}"
 read ALIASONE
 
 # check ALIASONE
@@ -118,7 +118,7 @@ do
       echo "************************************************************"
       echo ""
       EXIT='NO'
-      ALIAS="$MN$I"
+      ALIAS="MN$I"
       ALIAS=${ALIAS,,}  
       echo $ALIAS
 
